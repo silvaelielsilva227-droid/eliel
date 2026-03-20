@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Amor ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff4d6d, #ff9a9e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* FUNDO ANIMADO */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+    from {transform: translate(0,0);}
+    to {transform: translate(-200px,-200px);}
+}
+
+/* CARD PRINCIPAL */
+.card {
+    position: relative;
+    width: 340px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+    animation: fadeIn 1.5s ease;
+}
+
+/* IMAGEM */
+.card img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+/* TEXTO */
+h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.mensagem {
+    font-size: 18px;
+    margin: 15px 0;
+    min-height: 50px;
+}
+
+/* BOTÃO */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* CORAÇÕES */
+.heart {
+    position: absolute;
+    color: white;
+    animation: subir 5s linear infinite;
+}
+
+@keyframes subir {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="foto.jpg.jpeg" alt="Foto do Casal">
+
+    <h1>❤️ Nosso Amor ❤️</h1>
+
+    <div class="mensagem" id="mensagem">
+        Você é a melhor parte da minha vida 💕
+    </div>
+
+    <button onclick="trocarMensagem()">Clique ❤️</button>
+</div>
+
+<script>
+const mensagens = [
+    "Você é a melhor parte da minha vida 💕",
+    "Te amo mais a cada dia ❤️",
+    "Meu mundo é você 🌍",
+    "Quero você pra sempre 💍",
+    "Seu sorriso é meu lugar favorito 😊",
+    "Você me faz feliz de verdade 💖"
+];
+
+function trocarMensagem() {
+    const msg = mensagens[Math.floor(Math.random() * mensagens.length)];
+    document.getElementById("mensagem").innerText = msg;
+}
+
+/* Corações animados */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
