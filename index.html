@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Sistema de Controle de Notas</h1>
+        <p>Gerenciamento de empenhos, fundos e pagamentos</p>
+    </header>
+
+    <div class="grid-layout">
+        <div class="card">
+            <h2>Cadastrar Nota</h2>
+            <form id="formNota">
+                <div class="form-group">
+                    <label for="empenho">Empenho (Opcional)</label>
+                    <input type="text" id="empenho" placeholder="Ex: 2026NE0015">
+                </div>
+                <div class="form-group">
+                    <label for="nf">Nota Fiscal (Opcional)</label>
+                    <input type="text" id="nf" placeholder="Ex: NF-1234">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="Pendente">Pendente</option>
+                        <option value="Paga">Paga</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor (R$)</label>
+                    <input type="text" id="valor" placeholder="Ex: 1.500,00" required>
+                </div>
+                <div class="form-group">
+                    <label for="fundo">Fundo de Pagamento</label>
+                    <input type="text" id="fundo" placeholder="Ex: Fundo de Saúde" required>
+                </div>
+                <div class="form-group">
+                    <label for="banco">Dados Bancários</label>
+                    <textarea id="banco" placeholder="Ex: Banco do Brasil, Ag: 1234, C/C: 5678-9" required></textarea>
+                </div>
+                <button type="submit">Salvar Nota</button>
+            </form>
+        </div>
+
+        <div class="card tabela-container">
+            <h2>Notas Registradas</h2>
+            <div id="listaNotas">
+                <table id="tabelaNotas">
+                    <thead>
+                        <tr>
+                            <th>Empenho / NF</th>
+                            <th>Status</th>
+                            <th>Valor</th>
+                            <th>Fundo</th>
+                            <th>Dados Bancários</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
